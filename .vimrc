@@ -2,14 +2,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
-source ~/.vimrc.before
-endif
-
 " ================ General Config ====================
 
-execute pathogen#infect()
 set number relativenumber       "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
@@ -93,34 +87,12 @@ set linebreak    "Wrap lines at convenient points
 nnoremap <silent> <Leader>[ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>] :exe "resize " . (winheight(0) * 2/3)<CR>
 
-" ===== Seeing Is Believing =====
-" " Assumes you have a Ruby with SiB available in the PATH
-" " If it doesn't work, you may need to `gem install seeing_is_believing -v
-" 3.0.0.beta.6`
-" " ...yeah, current release is a beta, which won't auto-install
-"
-" " Annotate every line
-"
-nmap <leader>b :%!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk<CR>;
-"
-"  " Annotate marked lines
-"
-nmap <leader>n :%.!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk --xmpfilter-style<CR>;
-"
-"  " Remove annotations
-"
-nmap <leader>c :%.!seeing_is_believing --clean<CR>;
-"
-"  " Mark the current line for annotation
-"
-nmap <leader>m A # => <Esc>
-"
-"  " Mark the highlighted lines for annotation
-"
-vmap <leader>m :norm A # => <Esc>
-
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Show hidden files in Nerdtree
+set runtimepath^=~/.vim/bundle/nerdtree
+let NERDTreeShowHidden=1
 
 map <Leader>y "+y
 map <Leader>d "+d
@@ -143,11 +115,3 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
 
-" For ruby block selections
-runtime macros/matchit.vim
-
-" For Running plain Ruby test scripts
-nnoremap <leader>r :RunSpec<CR>
-nnoremap <leader>l :RunSpecLine<CR>
-nnoremap <leader>e :RunSpecLastRun<CR>
-nnoremap <leader>cr :RunSpecCloseResult<CR>
