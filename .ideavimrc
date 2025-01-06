@@ -105,6 +105,9 @@ set matchpaires+=<:>
 " smart line joining: J to join with next line
 set ideajoin
 
+" To use same keybinding on linux: Help -> Edit Custom Properties...
+" In the file that opens, add this on a new line: keymap.windows.as.meta=true
+
 " open search panel
 map <leader>f :action FindInPath<CR>
 
