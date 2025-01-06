@@ -1,0 +1,101 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+set number relativenumber
+let mapleader = " "
+
+" map black whole register
+noremap \ "_
+
+" map arrow keys in insert mode
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" highlight search results
+set hlsearch
+
+" remove search highlight
+nnoremap <leader>ns :nohlsearch<CR>
+
+" case-insensitive search
+set ignorecase
+
+" enable case-sensitive search when uppercased letter is present
+set smartcase
+
+
+" Keep the current mode when refactoring
+set idearefactormode=keep
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+" NerdTree
+Plug 'preservim/nerdtree'
+map <leader>f :NERDTree<CR>
+
+
+" Easy motion - need to install acejump and ideavim-easymotion plugin
+Plug 'easymotion/vim-easymotion'
+
+" Use ds" cs])
+Plug 'tpope/vim-surround'
+
+" multi cursor, use mc, mx, mp to find next occurrence
+Plug 'terryma/vim-multiple-cursors'
+map mc <A-n>
+map mx <A-x>
+map mp <A-p>
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+map <leader>t :action ActivateTerminalToolWindow<CR>
+map <leader>rn :action RenameElement<CR>
+
+nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap <TAB> :action NextTab<CR>
+nnoremap <leader>w :action CloseContent<CR>
+
+" goto commands
+nnoremap <leader>ge :action GotoNextError<CR>
+nnoremap <leader>gE :action GotoPreviousError<CR>
+nnoremap <leader>gr :action RecentFiles<CR>
+nnoremap <leader>gi :action GotoImplementation<CR>
+nnoremap <leader>gt :action GotoTest<CR>
+
+" paste over without overwriting default register
+xnoremap p P
+
+" sync Vim clipboard with OS clipboard (^= This operator appends a new option (ideaput) to the existing clipboard settings without overwriting the current values.)
+set clipboard^=unnamed,unnamedplus
+set clipboard^=ideaput
+
+" jump between angle brackets using %
+set matchpaires+=<:>
+
+" smart line joining
+set ideajoin
+
+" open search panel
+map <leader>f :action FindInPath<CR>
+
