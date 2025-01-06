@@ -1,3 +1,5 @@
+" Idea built in function"
+nnoremap <Leader>f :action SearchEverywhere<CR>
 " .ideavimrc is a configuration file for IdeaVim plugin. It uses
 "   the same commands as the original .vimrc configuration.
 " You can find a list of commands here: https://jb.gg/h38q75
@@ -84,11 +86,11 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 " goto commands
-nnoremap <leader>ge :action gotonexterror<cr>
-nnoremap <leader>ge :action gotopreviouserror<cr>
-nnoremap <leader>gr :action recentfiles<cr>
-nnoremap <leader>gi :action gotoimplementation<cr>
-nnoremap <leader>gt :action gototest<cr>
+nnoremap <leader>ge :action GotoNextError<cr>
+nnoremap <leader>gR :action GotoPreviousError<cr>
+nnoremap <leader>gr :action RecentFiles<cr>
+nnoremap <leader>gi :action GotoImplementation<cr>
+nnoremap <leader>gt :action GotoTest<cr>
 
 " paste over without overwriting default register
 xnoremap p P
@@ -100,14 +102,11 @@ set clipboard^=ideaput
 " jump between angle brackets using %
 set matchpaires+=<:>
 
-" smart line joining
+" smart line joining: J to join with next line
 set ideajoin
 
 " open search panel
 map <leader>f :action FindInPath<CR>
-
-" To use same keybinding on linux: Help -> Edit Custom Properties...
-" In the file that opens, add this on a new line: keymap.windows.as.meta=true
 
 " 3 lines above/below cursor when scrolling
 set scrolloff=3
@@ -118,4 +117,3 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 inoremap <C-d> <Delete>
-
