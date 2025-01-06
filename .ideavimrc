@@ -72,16 +72,23 @@ map mp <A-p>
 map <leader>t :action ActivateTerminalToolWindow<CR>
 map <leader>rn :action RenameElement<CR>
 
-nnoremap <s-TAB> :action PreviousTab<CR>
-nnoremap <TAB> :action NextTab<CR>
+nnoremap <leader><s-TAB> :action PreviousTab<CR>
+nnoremap <leader><TAB> :action NextTab<CR>
 nnoremap <leader>w :action CloseContent<CR>
 
+" indent 
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
 " goto commands
-nnoremap <leader>ge :action GotoNextError<CR>
-nnoremap <leader>gE :action GotoPreviousError<CR>
-nnoremap <leader>gr :action RecentFiles<CR>
-nnoremap <leader>gi :action GotoImplementation<CR>
-nnoremap <leader>gt :action GotoTest<CR>
+nnoremap <leader>ge :action gotonexterror<cr>
+nnoremap <leader>ge :action gotopreviouserror<cr>
+nnoremap <leader>gr :action recentfiles<cr>
+nnoremap <leader>gi :action gotoimplementation<cr>
+nnoremap <leader>gt :action gototest<cr>
 
 " paste over without overwriting default register
 xnoremap p P
