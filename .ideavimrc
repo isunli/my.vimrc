@@ -108,3 +108,14 @@ map <leader>f :action FindInPath<CR>
 
 " To use same keybinding on linux: Help -> Edit Custom Properties...
 " In the file that opens, add this on a new line: keymap.windows.as.meta=true
+
+" 3 lines above/below cursor when scrolling
+set scrolloff=3
+
+" Insert mode shortcut"
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-d> <Delete>
+
