@@ -45,7 +45,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 " NerdTree
 Plug 'preservim/nerdtree'
-map <leader>f :NERDTree<CR>
+map <leader>gf :NERDTree<CR>
 
 
 " Easy motion - need to install acejump and ideavim-easymotion plugin
@@ -76,7 +76,7 @@ nnoremap <leader><s-TAB> :action PreviousTab<CR>
 nnoremap <leader><TAB> :action NextTab<CR>
 nnoremap <leader>w :action CloseContent<CR>
 
-" indent 
+" indent
 nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_
 inoremap <S-Tab> <C-D>
