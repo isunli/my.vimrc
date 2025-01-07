@@ -110,3 +110,6 @@ map <leader>s :action FindInPath<CR>
 " easymotion
 map <leader>j <Plug>(easymotion-f)
 map <leader>k <Plug>(easymotion-F)
+
+" remove search highlight
+nnoremap <leader>ns :nohlsearch<CR>
