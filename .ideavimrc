@@ -3,11 +3,6 @@
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
 
-set number relativenumber
-let mapleader = " "
-
-" map black whole register
-noremap \ "_
 
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
@@ -16,6 +11,16 @@ set scrolloff=5
 
 " Do incremental searching.
 set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- vim settings
+set number relativenumber
+let mapleader = " "
+
+" map black whole register
+noremap \ "_
 
 " highlight search results
 set hlsearch
@@ -26,64 +31,8 @@ set ignorecase
 " enable case-sensitive search when uppercased letter is present
 set smartcase
 
-
 " Keep the current mode when refactoring
 set idearefactormode=keep
-" Don't use Ex mode, use Q for formatting.
-map Q gq
-
-" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
-
-" Highlight copied text
-Plug 'machakann/vim-highlightedyank'
-" Commentary plugin
-Plug 'tpope/vim-commentary'
-" NerdTree
-Plug 'preservim/nerdtree'
-
-
-" Easy motion - need to install acejump and ideavim-easymotion plugin
-Plug 'easymotion/vim-easymotion'
-
-" Use ds" cs])
-Plug 'tpope/vim-surround'
-
-" multi cursor, use mc, mx, mp to find next occurrence
-Plug 'terryma/vim-multiple-cursors'
-nnoremap mc <A-n>
-nnoremap mx <A-x>
-nnoremap mp <A-p>
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-"map \r <Action>(ReformatCode)
-
-"" Map <leader>d to start debug
-"map <leader>d <Action>(Debug)
-
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)
-
-nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
-nnoremap <leader>rn :action RenameElement<CR>
-
-nnoremap <leader><s-TAB> :action PreviousTab<CR>
-nnoremap <leader><TAB> :action NextTab<CR>
-nnoremap <leader>w :action CloseContent<CR>
-
-" indent
-nnoremap <Tab> >>_
-nnoremap <S-Tab> <<_
-inoremap <S-Tab> <C-D>
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
-
-" goto commands
-nnoremap <leader>ge :action GotoNextError<cr>
-nnoremap <leader>gR :action GotoPreviousError<cr>
-nnoremap <leader>gr :action RecentFiles<cr>
-nnoremap <leader>gi :action GotoImplementation<cr>
-nnoremap <leader>gt :action GotoTest<cr>
-nnoremap <leader>gf :NERDTree<CR>
 
 " paste over without overwriting default register
 xnoremap p P
@@ -98,11 +47,12 @@ set matchpaires+=<:>
 " smart line joining: J to join with next line
 set ideajoin
 
-" open search panel
-map <leader>f :action FindInPath<CR>
-
-" 3 lines above/below cursor when scrolling
-set scrolloff=3
+" indent
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
 " Insert mode shortcut"
 " map arrow keys in insert mode
@@ -115,3 +65,44 @@ inoremap <C-d> <Delete>
 " To use same keybinding on linux: Help -> Edit Custom Properties...
 " In the file that opens, add this on a new line: keymap.windows.as.meta=true
 
+
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+" NerdTree
+Plug 'preservim/nerdtree'
+
+" Easy motion - need to install acejump and ideavim-easymotion plugin
+Plug 'easymotion/vim-easymotion'
+
+" Use ds" cs])
+Plug 'tpope/vim-surround'
+
+" multi cursor, use mc, mx, mp to find next occurrence
+Plug 'terryma/vim-multiple-cursors'
+nnoremap mc <A-n>
+nnoremap mx <A-x>
+nnoremap mp <A-p>
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader><s-TAB> :action PreviousTab<CR>
+nnoremap <leader><TAB> :action NextTab<CR>
+nnoremap <leader>w :action CloseContent<CR>
+
+" goto commands
+nnoremap <leader>ge :action GotoNextError<cr>
+nnoremap <leader>gR :action GotoPreviousError<cr>
+nnoremap <leader>gr :action RecentFiles<cr>
+nnoremap <leader>gi :action GotoImplementation<cr>
+nnoremap <leader>gt :action GotoTest<cr>
+nnoremap <leader>gf :NERDTree<CR>
+
+" open search panel
+map <leader>f :action FindInPath<CR>
