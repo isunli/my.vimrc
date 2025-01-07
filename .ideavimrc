@@ -98,11 +98,15 @@ nnoremap <leader>w :action CloseContent<CR>
 
 " goto commands
 nnoremap <leader>ge :action GotoNextError<cr>
-nnoremap <leader>gR :action GotoPreviousError<cr>
+nnoremap <leader>gE :action GotoPreviousError<cr>
 nnoremap <leader>gr :action RecentFiles<cr>
 nnoremap <leader>gi :action GotoImplementation<cr>
 nnoremap <leader>gt :action GotoTest<cr>
 nnoremap <leader>gf :NERDTree<CR>
 
 " open search panel
-map <leader>f :action FindInPath<CR>
+map <leader>s :action FindInPath<CR>
+
+" easymotion
+map <leader>j <Plug>(easymotion-f)
+map <leader>k <Plug>(easymotion-F)
